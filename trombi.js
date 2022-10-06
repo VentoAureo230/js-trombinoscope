@@ -29,7 +29,7 @@ function createRow(data){
 	locationDiv.innerHTML = "Location : " + data.location
 	document.body.appendChild(locationDiv)
 
-	const avatarDiv =  document.createElement("img")
+	const avatarDiv = document.createElement("img")
 	avatarDiv.src = data.avatar_url
 	document.body.appendChild(avatarDiv)
 }
@@ -39,7 +39,7 @@ async function search() {
 	for(login of logins)
 		if (login != null) {
 			fetch(`https://api.github.com/users/${login}`, {
-				headers: new Headers({"Authorization": "Bearer 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"})
+				headers: new Headers({"Authorization": "Bearer "})
 			})
 			.then((data) => data.json())
 			.then((data) => createRow(data))
