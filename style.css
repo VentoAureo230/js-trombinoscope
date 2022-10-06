@@ -1,0 +1,9 @@
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info {
+    align-items: center;
+    justify-content: center;
+}
