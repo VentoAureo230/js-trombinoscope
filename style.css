@@ -1,9 +1,21 @@
-main {
+body {
+    background: #eee;
     display: flex;
     flex-direction: column;
+    margin: 0 20vw;
 }
 
-.user-info {
-    align-items: center;
-    justify-content: center;
+p, a {
+    border: 2px solid black;
+}
+a {
+    content: attr("GitHub Profile");
+}
+img {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-self: center;
 }

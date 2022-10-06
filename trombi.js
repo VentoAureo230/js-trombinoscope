@@ -6,8 +6,7 @@ async function getFile() {
 	return students		
 }
 
-function createRow(data){
-
+function createRow(data) {
 	const loginDiv = document.createElement("p")
 	loginDiv.innerHTML = "Login : " + data.login
 	document.body.appendChild(loginDiv)
@@ -15,13 +14,13 @@ function createRow(data){
 	const nameDiv = document.createElement("p")
 	nameDiv.innerHTML = "Nom : " + data.name
 	document.body.appendChild(nameDiv)
-	
 
 	const bioDiv = document.createElement("p")
 	bioDiv.innerHTML = "Biographie : " + data.bio
 	document.body.appendChild(bioDiv)
  
-	const followersDiv = document.createElement("p")
+	const followersDiv = document.createElement("a")
+	followersDiv.href =  data.followers_url
 	followersDiv.innerHTML = "Followers : " + data.followers
 	document.body.appendChild(followersDiv)
 
@@ -29,9 +28,18 @@ function createRow(data){
 	locationDiv.innerHTML = "Location : " + data.location
 	document.body.appendChild(locationDiv)
 
+	const publicRepos = document.createElement("p")
+	publicRepos.innerHTML = "Dépôts publiés : " + data.public_repos
+	document.body.appendChild(publicRepos)
+
+	const gitLink = document.createElement("a")
+	gitLink.href = data.html_url
+	document.body.appendChild(gitLink)
+
 	const avatarDiv = document.createElement("img")
 	avatarDiv.src = data.avatar_url
 	document.body.appendChild(avatarDiv)
+
 }
 
 async function search() {
@@ -43,7 +51,6 @@ async function search() {
 			})
 			.then((data) => data.json())
 			.then((data) => createRow(data))
-			
 		} else {
 			console.error('Erreur pendant le chargement');
 		}
